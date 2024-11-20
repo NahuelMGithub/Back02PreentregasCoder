@@ -8,7 +8,10 @@ router.get('/', (req, res) => {
     res.send('Bienvenido a mi aplicación!');
 });
 
-
+//Ruta para el registro
+ router.get('/registro', (req,res)=> {
+    res.render('register');  // aca no va el  { currentUser: req.cookies.currentUser} (creo..)
+})
 
 
 //Ruta para el login

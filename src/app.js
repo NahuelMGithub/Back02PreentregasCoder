@@ -2,6 +2,7 @@ import express from 'express';
 import cookieParser from 'cookie-parser';
 import handlebars from 'express-handlebars';
 import mongoose from 'mongoose';
+import MongoStore from 'connect-mongo'; // este no se si lo voy a usar
 import {__dirname} from '../src/utils.js';
 
 import dotenv from "dotenv"; //Para utilizar las variables de entorno

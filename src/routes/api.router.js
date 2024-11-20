@@ -17,6 +17,7 @@ router.post('/register', async (req, res) => {
         // aca hay que ver si ya existe!
         await newUser.save()> //Guardamos el usuario en la base de datos
         res.json({message: 'Usuario registrado exitosamente'})
+        //aca podria redirigir a perfil, a current o bien, a iniciar sesion
     }catch (error){
         res.status(400).json({error: error.message}); //Manejar errores durante el registro
     }
@@ -27,7 +28,7 @@ router.post('/login', async (req, res) => {
     try{
         const user = await UserService.findOne({email: req.body.email});//Buscamos el usuario por email
         if(!user){
-            return res.status(400).json({error: 'Usuario no encontrado'}); //Error cuando el usuario no existe
+            return res.status(401).json({error: 'Usuario no encontrado'}); //Error cuando el usuario no existe
         }
 
         if(!isValidPassword(user, password)){
